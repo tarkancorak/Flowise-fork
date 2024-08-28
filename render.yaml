@@ -1,0 +1,32 @@
+# Exported from Render on 2024-08-28T08:27:53Z
+services:
+- type: web
+  name: Flowise
+  runtime: docker
+  repo: https://github.com/tarkancorak/Flowise-fork
+  plan: starter
+  envVars:
+  - key: SECRETKEY_PATH
+    sync: false
+  - key: NUMBER_OF_PROXIES
+    sync: false
+  - key: NODE_VERSION
+    sync: false
+  - key: LOG_PATH
+    sync: false
+  - key: FLOWISE_USERNAME
+    sync: false
+  - key: FLOWISE_PASSWORD
+    sync: false
+  - key: DATABASE_PATH
+    sync: false
+  - key: API_KEY_PATH
+    sync: false
+  region: frankfurt
+  dockerContext: .
+  dockerfilePath: ./Dockerfile
+  disk:
+    name: disk
+    mountPath: /opt/render/.flowise
+    sizeGB: 1
+version: "1"
