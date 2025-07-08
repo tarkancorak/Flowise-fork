@@ -83,11 +83,12 @@ class CustomFunction_Utilities implements INode {
         const databaseEntities = options.databaseEntities as IDatabaseEntity
         const tools = Object.fromEntries((flatten(nodeData.inputs?.tools) as StructuredTool[])?.map((tool) => [tool.name, tool]) ?? [])
 
-        const variables = await getVars(appDataSource, databaseEntities, nodeData)
+        const variables = await getVars(appDataSource, databaseEntities, nodeData, options)
         const flow = {
             chatflowId: options.chatflowid,
             sessionId: options.sessionId,
             chatId: options.chatId,
+            rawOutput: options.rawOutput || '',
             input
         }
 
